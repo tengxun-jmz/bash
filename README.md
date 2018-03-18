@@ -194,6 +194,27 @@
 	passwd test                        # 如果时root 需要登录后再passwd
 ```
 
+
+```
+	cat /etc/passwd
+	root:x:0:0:Superuser:/:
+	daemon:x:1:1:System daemons:/etc:
+	bin:x:2:2:Owner of system commands:/bin:
+	sys:x:3:3:Owner of system files:/usr/sys:
+	adm:x:4:4:System accounting:/usr/adm:
+	uucp:x:5:5:UUCP administrator:/usr/lib/uucp:
+	auth:x:7:21:Authentication administrator:/tcb/files/auth:
+	cron:x:9:16:Cron daemon:/usr/spool/cron:
+	listen:x:37:4:Network daemon:/usr/net/nls:
+	lp:x:71:18:Printer administrator:/usr/spool/lp:
+	sam:x:200:50:Sam san:/usr/sam:/bin/sh
+
+	用户名:口令:用户标示号:组标示号:注释性描述:目录:登录shell
+	                            -c        -d   -s
+
+```
+
+
 ## 用户组管理
 
 * groupadd 选项 用户组
@@ -202,11 +223,47 @@
 ```
 	groupadd -g 101 grouptest
 ```
+* groupmod 选项 用户组
+	* -g 为用户组指定新的组标示号
+	* -o 一般与-g 选项同时使用,表示新用户的GID可以与系统已有的用户组的GID相同
+	* -n 新的用户组的名字改为新名字
+```
+	groupmod -g 102 -n grouptest1 grouptest        # 将组grouptest的组标示号改为102 并将组名称改为grouptest1
+```
 
 * groupdel 用户组
 ```
 	groupdel 用户组
 ```
+
+```
+	cat /etc/group
+	
+	root::0:root
+	bin::2:root,bin
+	sys::3:root,uucp
+	adm::4:root,adm
+	daemon::5:root,daemon
+	lp::7:root,lp
+	users::20:root,sam
+	组名:口令:组标识号:组内用户列表
+```
+
+
+
+
+##文件操作命令(文本处理三剑客)
+
+* sed 的选项 、命令、替换标记
+	* 命令格式
+		* sed [options] 'command' file(s)
+		* sed [options] -f scriptfile file(s)
+	* 选项
+	
+
+
+
+
 
 
 
