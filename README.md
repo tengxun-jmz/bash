@@ -169,7 +169,44 @@
  	* -G :附加用户组
  	* -s :shell文件 指定用户的登录shell
  	* -u :用户名
+```
+	useradd -d /home/test -g test -G root,www,mysql -s /bin/sh -c 'test' test
+```
 
+* usermod  修改账号
+	* 和useradd 参数一样
+```
+	usermod -d /home/test1 -g test1 -G developer test
+```
+
+* userdel 删除用户名
+	* -r 把用户的主目录一起删除
+```
+	userdel -r test
+```
+
+* passwd 选项 用户名        修改用户口令
+	* -l 锁定口令
+	* -u 口令解锁
+	* -d 使账号无口令
+	* -f 强迫用户下次登录时修改口令
+```
+	passwd test                        # 如果时root 需要登录后再passwd
+```
+
+## 用户组管理
+
+* groupadd 选项 用户组
+	* -g 指定新用户组的组标示 (GID)
+	* -o 一般与-g 选项同时使用,表示新用户的GID可以与系统已有的用户组的GID相同
+```
+	groupadd -g 101 grouptest
+```
+
+* groupdel 用户组
+```
+	groupdel 用户组
+```
 
 
 
